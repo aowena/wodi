@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>男性主义宣言</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family:
+        Inter,
+        "Noto Sans SC",
+        "PingFang SC",
+        "Microsoft YaHei",
+        sans-serif;
+    background: #080808;
+    color: #f3f3f3;
+    line-height: 1.6;
+}
+
+/* ===== 顶部导航 ===== */
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5vw;
+    z-index: 100;
+    background: rgba(8, 8, 8, 0.75);
+    backdrop-filter: blur(18px);
+    border-bottom: 1px solid rgba(255,255,255,.08);
+}
+
+.logo {
+    font-size: 18px;
+    font-weight: 900;
+    letter-spacing: 4px;
+}
+
+.logo span {
+    opacity: .35;
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    color: #aaa;
+    text-decoration: none;
+    font-size: 13px;
+    transition: .3s;
+}
+
+.nav-links a:hover {
+    color: #fff;
+}
+
+/* ===== Hero ===== */
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    padding: 120px 8vw 80px;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    width: 700px;
+    height: 700px;
+    border-radius: 50%;
+    background: radial-gradient(
+        circle,
+        rgba(255,255,255,.12),
+        transparent 65%
+    );
+    right: -250px;
+    top: 10%;
+}
+
+.hero-content {
+    max-width: 1000px;
+    position: relative;
+    z-index: 2;
+}
+
+.kicker {
+    color: #777;
+    font-size: 12px;
+    letter-spacing: 6px;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+}
+
+h1 {
+    font-size: clamp(70px, 13vw, 180px);
+    line-height: .82;
+    letter-spacing: -8px;
+    font-weight: 950;
+    text-transform: uppercase;
+}
+
+h1 .outline {
+    color: transparent;
+    -webkit-text-stroke: 1px #fff;
+}
+
+.hero-description {
+    max-width: 600px;
+    margin-top: 45px;
+    color: #999;
+    font-size: 18px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 35px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 14px 25px;
+    text-decoration: none;
+    font-size: 13px;
+    letter-spacing: 1px;
+    transition: .3s;
+}
+
+.btn-primary {
+    background: #fff;
+    color: #000;
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+}
+
+.btn-outline {
+    border: 1px solid #444;
+    color: #fff;
+}
+
+.btn-outline:hover {
+    border-color: #fff;
+}
+
+/* ===== 巨型背景文字 ===== */
+
+.bg-text {
+    position: absolute;
+    bottom: -30px;
+    left: 2vw;
+    font-size: 18vw;
+    line-height: 1;
+    font-weight: 950;
+    color: rgba(255,255,255,.025);
+    pointer-events: none;
+}
+
+/* ===== Section ===== */
+
+section {
+    padding: 140px 8vw;
+    border-top: 1px solid #191919;
+}
+
+.section-label {
+    color: #666;
+    font-size: 11px;
+    letter-spacing: 5px;
+    margin-bottom: 35px;
+}
+
+.section-title {
+    font-size: clamp(42px, 7vw, 90px);
+    line-height: .95;
+    letter-spacing: -3px;
+    max-width: 900px;
+}
+
+/* ===== Manifesto ===== */
+
+.manifesto {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;
+    margin-top: 80px;
+}
+
+.manifesto-text {
+    color: #aaa;
+    font-size: 17px;
+    max-width: 600px;
+}
+
+.manifesto-text p {
+    margin-bottom: 25px;
+}
+
+.quote {
+    font-size: clamp(30px, 4vw, 55px);
+    line-height: 1.05;
+    font-weight: 800;
+    border-left: 2px solid #fff;
+    padding-left: 30px;
+}
+
+/* ===== Principles ===== */
+
+.principles {
+    margin-top: 80px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-top: 1px solid #333;
+}
+
+.principle {
+    padding: 40px 30px 50px 0;
+    border-right: 1px solid #222;
+}
+
+.principle:not(:first-child) {
+    padding-left: 30px;
+}
+
+.number {
+    font-size: 12px;
+    color: #666;
+    margin-bottom: 40px;
+}
+
+.principle h3 {
+    font-size: 27px;
+    margin-bottom: 18px;
+}
+
+.principle p {
+    color: #777;
+    font-size: 14px;
+}
+
+/* ===== Statement ===== */
+
+.statement {
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.statement-inner {
+    max-width: 1000px;
+}
+
+.statement h2 {
+    font-size: clamp(50px, 9vw, 130px);
+    line-height: .9;
+    letter-spacing: -5px;
+}
+
+.statement p {
+    color: #777;
+    margin-top: 40px;
+}
+
+/* ===== Footer ===== */
+
+footer {
+    padding: 50px 8vw;
+    border-top: 1px solid #222;
+    display: flex;
+    justify-content: space-between;
+    color: #555;
+    font-size: 12px;
+}
+
+/* ===== Responsive ===== */
+
+@media (max-width: 800px) {
+
+    nav {
+        padding: 0 25px;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .hero {
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+
+    h1 {
+        letter-spacing: -4px;
+    }
+
+    section {
+        padding: 90px 25px;
+    }
+
+    .manifesto {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+
+    .principles {
+        grid-template-columns: 1fr;
+    }
+
+    .principle,
+    .principle:not(:first-child) {
+        padding: 35px 0;
+        border-right: 0;
+        border-bottom: 1px solid #222;
+    }
+
+    footer {
+        padding: 35px 25px;
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+    <div class="logo">
+        M<span>/</span>M
+    </div>
+
+    <div class="nav-links">
+        <a href="#manifesto">宣言</a>
+        <a href="#principles">原则</a>
+        <a href="#future">未来</a>
+    </div>
+</nav>
+
+<!-- HERO -->
+
+<header class="hero">
+
+    <div class="hero-content">
+
+        <div class="kicker">
+            MEN / MIND / MEANING
+        </div>
+
+        <h1>
+            BE<br>
+            <span class="outline">YOUR</span><br>
+            OWN MAN.
+        </h1>
+
+        <p class="hero-description">
+            一个关于男性、责任、自律、勇气与个人成长的抽象思想实验。
+            不要求支配别人，只要求一个人能够承担自己的选择。
+        </p>
+
+        <div class="hero-buttons">
+            <a class="btn btn-primary" href="#manifesto">
+                阅读宣言
+            </a>
+
+            <a class="btn btn-outline" href="#principles">
+                核心原则
+            </a>
+        </div>
+
+    </div>
+
+    <div class="bg-text">
+        MAN
+    </div>
+
+</header>
+
+
+<!-- MANIFESTO -->
+
+<section id="manifesto">
+
+    <div class="section-label">
+        01 / MANIFESTO
+    </div>
+
+    <h2 class="section-title">
+        男人首先应该<br>
+        对自己负责。
+    </h2>
+
+    <div class="manifesto">
+
+        <div class="manifesto-text">
+
+            <p>
+                所谓男性主义，在这里并不是对其他人的支配，
+                而是一种关于自我承担的思想。
+            </p>
+
+            <p>
+                自由意味着选择。
+                选择意味着责任。
+                责任意味着你不能永远把人生的结果归因于别人。
+            </p>
+
+            <p>
+                失败可以被接受，逃避不能成为原则。
+                脆弱可以被承认，但不能成为拒绝成长的借口。
+            </p>
+
+        </div>
+
+        <div class="quote">
+            “真正的力量，
+            是能够控制自己，
+            而不是控制别人。”
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- PRINCIPLES -->
+
+<section id="principles">
+
+    <div class="section-label">
+        02 / PRINCIPLES
+    </div>
+
+    <h2 class="section-title">
+        六个简单的<br>
+        原则。
+    </h2>
+
+    <div class="principles">
+
+        <div class="principle">
+            <div class="number">01</div>
+            <h3>责任</h3>
+            <p>
+                为自己的决定、行为和人生承担后果。
+            </p>
+        </div>
+
+        <div class="principle">
+            <div class="number">02</div>
+            <h3>纪律</h3>
+            <p>
+                在没有人监督的时候，依然完成应该完成的事情。
+            </p>
+        </div>
+
+        <div class="principle">
+            <div class="number">03</div>
+            <h3>勇气</h3>
+            <p>
+                面对恐惧，而不是假装自己从来不会害怕。
+            </p>
+        </div>
+
+        <div class="principle">
+            <div class="number">04</div>
+            <h3>尊重</h3>
+            <p>
+                尊重自己，也尊重其他人的自由和边界。
+            </p>
+        </div>
+
+        <div class="principle">
+            <div class="number">05</div>
+            <h3>成长</h3>
+            <p>
+                不把昨天的自己当成今天必须维持的身份。
+            </p>
+        </div>
+
+        <div class="principle">
+            <div class="number">06</div>
+            <h3>创造</h3>
+            <p>
+                与其抱怨世界，不如创造一些能够留在世界上的东西。
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FUTURE -->
+
+<section id="future" class="statement">
+
+    <div class="statement-inner">
+
+        <div class="section-label">
+            03 / FUTURE
+        </div>
+
+        <h2>
+            BUILD.<br>
+            DON'T BLAME.
+        </h2>
+
+        <p>
+            建设，而不是抱怨。<br>
+            承担，而不是逃避。<br>
+            成为自己想成为的人。
+        </p>
+
+    </div>
+
+</section>
+
+
+<footer>
+
+    <div>
+        M/M — MEN / MIND / MEANING
+    </div>
+
+    <div>
+        AN ABSTRACT PHILOSOPHICAL PROJECT
+    </div>
+
+</footer>
+
+</body>
+</html>
